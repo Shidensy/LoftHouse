@@ -1,0 +1,36 @@
+.section-map {
+    padding: 180px 0;
+
+    position: relative;
+
+    &::before {
+        content: "V";
+        top: 0;
+        margin-top: 143px;
+        right: calc(50% + 555px);
+        transform: translate(50%, 0);
+        @include decorNumber();
+    }
+
+    @include mediaTablet {
+        &::before {
+            display: none;
+        }
+
+        padding: 60px 0;
+    }
+}
+
+
+.section-map__title {
+    margin-bottom: 88px;
+
+    @include mediaTablet {
+        margin-bottom: 44px;
+    }
+}
+
+.map {
+    height: 358px;
+    background-color: #b7b7b7;
+}
