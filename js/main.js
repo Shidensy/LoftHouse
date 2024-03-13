@@ -1,14 +1,53 @@
-// Nav icon
+var header = $("#header"),
+        introH = $("#intro").innerHeight(),
+        scrollOffset = $(window).scrollTop();
 
-const navBtn = document.querySelector('.nav-icon-btn');
-const navIcon = document.querySelector('.nav-icon');
-const nav = document.querySelector('.header__top-row');
+    // Fixed Header 
+    checkScroll(scrollOffset);
 
-navBtn.onclick = function () {
-    navIcon.classList.toggle('nav-icon--active');
-    nav.classList.toggle('header__top-row--mobile');
-    document.body.classList.toggle('no-scroll');
-}
+    $(window).on("scroll", function() {
+
+        scrollOffset = $(this).scrollTop();
+
+        checkScroll(scrollOffset);
+    });
+
+    function checkScroll() {
+
+        if  (scrollOffset >= introH) {
+            header.addClass("fixed");
+        }
+        else {
+            header.removeClass("fixed");
+        }
+    }
+
+	// Smooth Scroll
+
+    $("[data-scroll]").on("click", function(event) {
+        event.preventDefault();
+
+        var $this = $(this),
+            blockId = $this.data('scroll'),
+            blockOffset = $(blockId).offset().top;
+
+        $("html, body").animate({
+            scrollTop : blockOffset
+        }, 500);
+        $("#intro").removeClass("header__top-row--mobile");
+        $("#header").removeClass("header__top--mobile");
+		$("#nav-toggle").removeClass("nav-icon--active");
+    });
+
+	// Nav Toggle
+
+	$("#nav-toggle").on("click", function(event) {
+        event.preventDefault();
+
+        $("#header").toggleClass("header__top--mobile");
+        $(this).toggleClass("nav-icon--active");
+        $("#intro").toggleClass("header__top-row--mobile");
+    });
 
 // Phone Mask
 
@@ -80,5 +119,4 @@ function init(){
 
 	map.geoObjects.add(myPlacemark);
     myPlacemark.balloon.open();
-
 }

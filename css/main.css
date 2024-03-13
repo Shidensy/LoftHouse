@@ -180,14 +180,26 @@ a:hover {
   align-items: center;
 }
 
-.header__top-row--mobile {
+.fixed {
+  width: 100%;
+  padding: 10px 10px;
+  background-color: #242b33;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  transform: translate3d(0, 0, 0);
+}
+
+.header__top--mobile {
   position: fixed;
   background-color: #242b33;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 91;
+  z-index: 910;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -195,19 +207,27 @@ a:hover {
   row-gap: 60px;
   padding: 40px 0px;
 }
-.header__top-row--mobile .header__nav {
+.header__top--mobile .header__nav {
   display: block;
 }
-.header__top-row--mobile .nav__list {
+.header__top--mobile .nav__list {
   flex-direction: column;
   align-items: center;
   row-gap: 30px;
 }
-.header__top-row--mobile .header__nav-btn {
+.header__top--mobile .header__nav-btn {
   position: fixed;
   z-index: 92;
   top: 55px;
   right: 15px;
+}
+
+.header__top-row--mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 60px;
 }
 
 @media screen and (max-width: 959px) {
@@ -359,7 +379,7 @@ a:hover {
 
 .benefits {
   position: relative;
-  padding: 120px 0;
+  padding-top: 120px;
   overflow: hidden;
 }
 .benefits::after {
@@ -426,6 +446,7 @@ a:hover {
 
 .apartments {
   position: relative;
+  padding-top: 120px;
 }
 .apartments::before {
   content: "III";
@@ -531,7 +552,7 @@ a:hover {
 }
 @media screen and (max-width: 959px) {
   .cta {
-    padding: 60px 0;
+    padding: 90px 0;
   }
 }
 
@@ -721,7 +742,7 @@ a:hover {
 }
 @media screen and (max-width: 959px) {
   .section-map {
-    padding: 60px 0;
+    padding: 90px 0 60px 0;
   }
   .section-map::before {
     display: none;
@@ -742,8 +763,7 @@ a:hover {
   background-color: #b7b7b7;
 }
 
-.ymaps-2-1-79-gotoymaps__container,
-.ymaps-2-1-79-gototech {
+.ymaps-2-1-79-gotoymaps__container .ymaps-2-1-79-gototech {
   display: none !important;
 }
 
@@ -753,6 +773,7 @@ a:hover {
 @media screen and (max-width: 959px) {
   .feedback {
     padding-bottom: 60px;
+    padding-top: 100px;
   }
 }
 
@@ -786,7 +807,7 @@ a:hover {
 }
 @media screen and (max-width: 959px) {
   .footer {
-    padding-top: 36px;
+    padding-top: 100px;
     padding-bottom: 25px;
   }
 }
